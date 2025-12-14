@@ -1,0 +1,1678 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "IoT  Security Threat Model",
+    "owner": "Zyra",
+    "description": "Threat model for Python-based IoT Honeypot simulating vulnerable smart camera, thermostat, and baby monitor endpoints to study attacker behaviour and support digital forensics."
+  },
+  "detail": {
+    "diagrams": [
+      {
+        "cells": [
+          {
+            "position": {
+              "x": 90,
+              "y": -370
+            },
+            "size": {
+              "width": 410,
+              "height": 210
+            },
+            "attrs": {
+              "label": {
+                "text": "ISP/Internet Boundary"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "de494a6b-f06a-4ef9-9b96-84bed361a133",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "ISP/Internet Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 510,
+              "y": -1100
+            },
+            "size": {
+              "width": 410,
+              "height": 910
+            },
+            "attrs": {
+              "label": {
+                "text": "Home LAN"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "6575bd44-ff75-4ead-ae22-5ea05a140207",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Home LAN",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "zIndex": -1
+          },
+          {
+            "position": {
+              "x": 570,
+              "y": -509.9999999999999
+            },
+            "size": {
+              "width": 290,
+              "height": 280
+            },
+            "attrs": {
+              "label": {
+                "text": "Device Firmware Boundary"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "6da730c3-aa82-4bfc-b87d-59d9bcb5aa92",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Device Firmware Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 49.99999999999778,
+              "y": -864.9999999999981
+            },
+            "size": {
+              "width": 400,
+              "height": 660
+            },
+            "attrs": {
+              "label": {
+                "text": "Cloud API Gateway"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "4dde1f75-eaf5-465d-9f69-16db205e195f",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Cloud API Gateway",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 570,
+              "y": -789.9999999999999
+            },
+            "size": {
+              "width": 280,
+              "height": 250
+            },
+            "attrs": {
+              "label": {
+                "text": "User Mobile Device"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "a6fa5c90-0513-4488-8891-f810d500debf",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "User Mobile Device",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 139.99999999999778,
+              "y": -1025
+            },
+            "size": {
+              "width": 220,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "External Threat Actors"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 9,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8266f327-d5bd-4d23-830e-fca63c22c83d"
+                },
+                {
+                  "group": "right",
+                  "id": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ad4a596f-63a8-4b40-84fa-533a1c45a50c"
+                },
+                {
+                  "group": "left",
+                  "id": "36a2a6d4-65b5-4fe8-b800-772dbf29ec4a"
+                }
+              ]
+            },
+            "id": "bf161bc9-ca70-43ed-b8cf-508c6151709d",
+            "data": {
+              "type": "tm.Actor",
+              "name": "External Threat Actors",
+              "description": "Cybercriminals, Stalkers, Botnet Operators",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            },
+            "children": [
+              "04009d9d-424d-45c9-8fa0-6059f389310e"
+            ]
+          },
+          {
+            "position": {
+              "x": 610,
+              "y": -474.9999999999999
+            },
+            "size": {
+              "width": 210,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Smart Camera / Baby Monitor"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 10,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "3184dcf9-6906-491b-9a49-b3458ef53990"
+                },
+                {
+                  "group": "right",
+                  "id": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a36dfbbf-0707-4a25-96cc-742c89fe92b6"
+                },
+                {
+                  "group": "left",
+                  "id": "f0869bf2-1962-434f-a6b4-ebdda12f19bb"
+                }
+              ]
+            },
+            "id": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+            "data": {
+              "type": "tm.Process",
+              "name": "Smart Camera / Baby Monitor",
+              "description": "IoT cameras targeted by criminals to gain audio/video access without the owner's knowledge or permission",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "bffece5d-adb2-499c-b696-898789932124",
+                  "title": "Brute Force Login (Password Guessing)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attackers using password libraries and common weak/default passwords and credentials to gain access to camera feed.",
+                  "mitigation": "Using stronger passwords and changing the default credentials to a more secure one. Rate limiting and honeypot detection to capture attacker IP and behaviour. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 103,
+                  "score": ""
+                },
+                {
+                  "id": "098b2915-6ab3-4a81-8f40-c57efb61fe34",
+                  "title": "Credential Stuffing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Reusing breached passwords from other services to hijack the cameras. ",
+                  "mitigation": "Enforcing Multi-Factor Authentication and implementing rate limiting (limit login attempts per IP within a timeframe. Using credential stuffing detection tools and a honeypot to capture attempted leaked credentials for further analysis.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
+                  "score": ""
+                },
+                {
+                  "id": "3bddbd52-9ee2-446a-92a1-ab2b1a1c7c02",
+                  "title": "Real-Time Streaming Protocol (RTSP) Stream Hijacking",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Hijacking real-time video feed to spy or manipulate video feeds. ",
+                  "mitigation": "Enforcing strong authentication and enabling encryption. Using RTSP endpoints to log all unauthorized attempts and restricting network access to segment the network. Implementing secure session management.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 105,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "External Probe/ Scanning",
+              "description": "Initial attack vectors like credential stuffing, etc. ",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "External Probe/ Scanning"
+            ],
+            "id": "ac466b25-e04a-48e8-bd42-647a19c1961b",
+            "source": {
+              "cell": "bf161bc9-ca70-43ed-b8cf-508c6151709d",
+              "port": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+            },
+            "target": {
+              "cell": "61721467-de58-49c6-bb82-8ac1fef19f06",
+              "port": "f0869bf2-1962-434f-a6b4-ebdda12f19bb"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Internal Pivot",
+              "description": "After compromising the router through elevation of privilege, the attacker accesses the IoT cameras",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Internal Pivot"
+            ],
+            "id": "91288c99-c414-43de-a360-952178d29e4f",
+            "source": {
+              "cell": "61721467-de58-49c6-bb82-8ac1fef19f06",
+              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+            },
+            "target": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+            },
+            "vertices": [
+              {
+                "x": 1050,
+                "y": -690
+              }
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Direct Camera Access",
+              "description": "External Probes that bypass the router through exposed UPnP ports, etc.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Direct Camera Access"
+            ],
+            "id": "30a387a2-cdbd-43a6-9179-c5b6ed052c73",
+            "source": {
+              "cell": "bf161bc9-ca70-43ed-b8cf-508c6151709d",
+              "port": "8266f327-d5bd-4d23-830e-fca63c22c83d"
+            },
+            "target": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+            },
+            "vertices": [
+              {
+                "x": 280,
+                "y": -1170
+              },
+              {
+                "x": 560,
+                "y": -1190
+              },
+              {
+                "x": 1050,
+                "y": -1130
+              },
+              {
+                "x": 1130,
+                "y": -770
+              },
+              {
+                "x": 1110,
+                "y": -490
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Legitimate Login",
+              "description": "Normal user authentication flow",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Legitimate Login"
+            ],
+            "id": "91747822-df92-4671-ad4a-71d22de31b38",
+            "source": {
+              "cell": "2423e128-a0ee-4a33-ad63-817c58a72333",
+              "port": "ad4a596f-63a8-4b40-84fa-533a1c45a50c"
+            },
+            "target": {
+              "cell": "96b3e091-7196-4d90-a6aa-7f67ce3d4422",
+              "port": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+            },
+            "vertices": []
+          },
+          {
+            "position": {
+              "x": 605,
+              "y": -745
+            },
+            "size": {
+              "width": 220,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Legitimate Users"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 11,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8266f327-d5bd-4d23-830e-fca63c22c83d"
+                },
+                {
+                  "group": "right",
+                  "id": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ad4a596f-63a8-4b40-84fa-533a1c45a50c"
+                },
+                {
+                  "group": "left",
+                  "id": "36a2a6d4-65b5-4fe8-b800-772dbf29ec4a"
+                }
+              ]
+            },
+            "id": "2423e128-a0ee-4a33-ad63-817c58a72333",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Legitimate Users",
+              "description": "Parents, Homeowners",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 605,
+              "y": -910
+            },
+            "size": {
+              "width": 220,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Home IoT Router / Gateway"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 14,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "3184dcf9-6906-491b-9a49-b3458ef53990"
+                },
+                {
+                  "group": "right",
+                  "id": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a36dfbbf-0707-4a25-96cc-742c89fe92b6"
+                },
+                {
+                  "group": "left",
+                  "id": "f0869bf2-1962-434f-a6b4-ebdda12f19bb"
+                }
+              ]
+            },
+            "id": "61721467-de58-49c6-bb82-8ac1fef19f06",
+            "data": {
+              "type": "tm.Process",
+              "name": "Home IoT Router / Gateway",
+              "description": "A device that is commonly exploited through weak/default credentials and outdated firmware.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "2a0a828c-963f-47bc-a4a9-c92b6225f6f5",
+                  "title": "Router Exploit with Default Credentials",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attackers logging in using the default admin password. ",
+                  "mitigation": "Changing factory-set usernames and passwords and diasbling remote management. Using a honeypot to log router login attempts and fingerprinting behaviour. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 106,
+                  "score": ""
+                },
+                {
+                  "id": "91a43c4a-597b-4c60-8ccf-60336e61c22d",
+                  "title": "Botnet Infections (e.g. the Mirai Botnet)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Malware infecting the router and recruiting it for DDoS attacks. ",
+                  "mitigation": "Changing default credentials. Disabling unnecessary services like Telnet, SSH, and UPnP if it's not needed. Firmware updates. Isolating IoT devices on a separate VLAN or subnet to implement network segmentation. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 107,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 2
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 605,
+              "y": -1040
+            },
+            "size": {
+              "width": 220,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Internal Threat Actors"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 15,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8266f327-d5bd-4d23-830e-fca63c22c83d"
+                },
+                {
+                  "group": "right",
+                  "id": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ad4a596f-63a8-4b40-84fa-533a1c45a50c"
+                },
+                {
+                  "group": "left",
+                  "id": "36a2a6d4-65b5-4fe8-b800-772dbf29ec4a"
+                }
+              ]
+            },
+            "id": "a43d5f10-7f33-4c03-aec9-0733503742c8",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Internal Threat Actors",
+              "description": "Abusive Partners, Babysitters, Malicious family members",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 655,
+              "y": -350
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Device Configuration Store"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "48aa706e-652d-4eca-b86c-336b5a014f08"
+                },
+                {
+                  "group": "right",
+                  "id": "c78c8958-53ac-4847-b5b1-c49ad392b4e3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a6e203ae-6a6c-43d5-ad86-d10697beffbf"
+                },
+                {
+                  "group": "left",
+                  "id": "75ac2a48-8322-488e-a0d0-338c2c40e36b"
+                }
+              ]
+            },
+            "id": "90a93b43-95be-4134-bde2-6b9f701d4331",
+            "zIndex": 18,
+            "data": {
+              "type": "tm.Store",
+              "name": "Device Configuration Store",
+              "description": "STores local weak/hardcoded credentials",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 219.99999999999778,
+              "y": -780
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Cloud API Gateway"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+                },
+                {
+                  "group": "right",
+                  "id": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+                },
+                {
+                  "group": "left",
+                  "id": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+                }
+              ]
+            },
+            "id": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+            "zIndex": 19,
+            "data": {
+              "type": "tm.Process",
+              "name": "Cloud API Gateway",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 219.99999999999778,
+              "y": -645
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Video Streaming Service"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+                },
+                {
+                  "group": "right",
+                  "id": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+                },
+                {
+                  "group": "left",
+                  "id": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+                }
+              ]
+            },
+            "id": "544e9b37-0d3d-45a3-b752-26acc44c3300",
+            "data": {
+              "type": "tm.Process",
+              "name": "Video Streaming Service",
+              "description": "Handles live feed delivery and is often vulnerable to session hijacking",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            },
+            "zIndex": 20
+          },
+          {
+            "position": {
+              "x": 219.99999999999778,
+              "y": -509.9999999999999
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Logging/Evidence Collection"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+                },
+                {
+                  "group": "right",
+                  "id": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+                },
+                {
+                  "group": "left",
+                  "id": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+                }
+              ]
+            },
+            "id": "85c7deb8-2e62-4d58-ab50-6515d50baf3b",
+            "data": {
+              "type": "tm.Process",
+              "name": "Logging/Evidence Collection",
+              "description": "Crucial for forensics. It is also often vulnerable to log poisoning and deletion",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "9b1934da-bca0-45d0-9e22-b2d45ab65cf1",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Vulnerable to log poisoning and deletion",
+                  "mitigation": "Ensuring authenticity and integrity checks.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 108,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "zIndex": 21
+          },
+          {
+            "position": {
+              "x": 685,
+              "y": -635
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Mobile App Authentication"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+                },
+                {
+                  "group": "right",
+                  "id": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+                },
+                {
+                  "group": "left",
+                  "id": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+                }
+              ]
+            },
+            "id": "96b3e091-7196-4d90-a6aa-7f67ce3d4422",
+            "zIndex": 23,
+            "data": {
+              "type": "tm.Process",
+              "name": "Mobile App Authentication",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            },
+            "children": [
+              "dbf317dc-847d-4d9b-b0ed-c7dddda50db5"
+            ]
+          }
+        ],
+        "version": "2.5.0",
+        "title": "IoT  Security Threat Model",
+        "id": "diagram-1",
+        "diagramType": "STRIDE"
+      }
+    ],
+    "diagramTop": 10,
+    "threatTop": 116
+  }
+}
