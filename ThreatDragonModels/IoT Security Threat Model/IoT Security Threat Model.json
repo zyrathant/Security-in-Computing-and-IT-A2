@@ -1,7 +1,7 @@
 {
   "version": "2.5.0",
   "summary": {
-    "title": "IoT  Security Threat Model",
+    "title": "IoT Honeypot Security Threat Model",
     "owner": "Zyra",
     "description": "Threat model for Python-based IoT Honeypot simulating vulnerable smart camera, thermostat, and baby monitor endpoints to study attacker behaviour and support digital forensics."
   },
@@ -11,8 +11,8 @@
         "cells": [
           {
             "position": {
-              "x": 90,
-              "y": -370
+              "x": 44.99999999999778,
+              "y": -1100
             },
             "size": {
               "width": 410,
@@ -37,7 +37,7 @@
           },
           {
             "position": {
-              "x": 510,
+              "x": 505,
               "y": -1100
             },
             "size": {
@@ -63,12 +63,12 @@
           },
           {
             "position": {
-              "x": 570,
-              "y": -509.9999999999999
+              "x": 565,
+              "y": -769.9999999999999
             },
             "size": {
-              "width": 290,
-              "height": 280
+              "width": 310,
+              "height": 250
             },
             "attrs": {
               "label": {
@@ -89,8 +89,8 @@
           },
           {
             "position": {
-              "x": 49.99999999999778,
-              "y": -864.9999999999981
+              "x": 54.99999999999778,
+              "y": -860
             },
             "size": {
               "width": 400,
@@ -116,7 +116,7 @@
           {
             "position": {
               "x": 570,
-              "y": -789.9999999999999
+              "y": -474.9999999999999
             },
             "size": {
               "width": 280,
@@ -261,8 +261,8 @@
           },
           {
             "position": {
-              "x": 610,
-              "y": -474.9999999999999
+              "x": 615,
+              "y": -720
             },
             "size": {
               "width": 210,
@@ -415,11 +415,24 @@
                   "new": false,
                   "number": 105,
                   "score": ""
+                },
+                {
+                  "id": "d18e1d0f-6072-4d7f-a81a-daa93d295e27",
+                  "title": "OS Command Injection via Web",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Allows the attackers to execute arbitrary operating system commands",
+                  "mitigation": "User input sanitization. Avoid direct system calls and use safer platform APIs. Input validation. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 111,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 1,
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
@@ -493,67 +506,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Internal Pivot",
-              "description": "After compromising the router through elevation of privilege, the attacker accesses the IoT cameras",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Internal Pivot"
-            ],
-            "id": "91288c99-c414-43de-a360-952178d29e4f",
-            "source": {
-              "cell": "61721467-de58-49c6-bb82-8ac1fef19f06",
-              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
-            },
-            "target": {
-              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
-              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
-            },
-            "vertices": [
-              {
-                "x": 1050,
-                "y": -690
-              }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Direct Camera Access",
               "description": "External Probes that bypass the router through exposed UPnP ports, etc.",
               "outOfScope": false,
@@ -580,24 +532,24 @@
             },
             "vertices": [
               {
-                "x": 280,
+                "x": 310,
+                "y": -1140
+              },
+              {
+                "x": 620,
                 "y": -1170
               },
               {
-                "x": 560,
-                "y": -1190
+                "x": 950,
+                "y": -1110
               },
               {
-                "x": 1050,
-                "y": -1130
+                "x": 980,
+                "y": -810
               },
               {
-                "x": 1130,
-                "y": -770
-              },
-              {
-                "x": 1110,
-                "y": -490
+                "x": 940,
+                "y": -685
               }
             ]
           },
@@ -648,9 +600,630 @@
             "vertices": []
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Device status registers",
+              "description": "Device registering status with cloud",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Device status registers"
+            ],
+            "id": "919dfe6c-00bd-4266-8ce1-8243169ca174",
+            "source": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "f0869bf2-1962-434f-a6b4-ebdda12f19bb"
+            },
+            "target": {
+              "cell": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+              "port": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+            },
+            "vertices": [
+              {
+                "x": 490,
+                "y": -710
+              },
+              {
+                "x": 440,
+                "y": -730
+              },
+              {
+                "x": 330,
+                "y": -730
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Authentication Token Exchange",
+              "description": "Token/Session validation",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Authentication Token Exchange"
+            ],
+            "id": "e5307906-d8ab-4564-8935-d6971849ee87",
+            "source": {
+              "cell": "96b3e091-7196-4d90-a6aa-7f67ce3d4422",
+              "port": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+            },
+            "target": {
+              "cell": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+              "port": "9d60d3f4-f192-4b7a-b51d-33749bbcf2e2"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": -500
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Video Session Setup",
+              "description": "Cloud API authorizing the stream start",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Video Session Setup"
+            ],
+            "id": "d78f35f5-34da-4f9d-85ed-62216dc80f15",
+            "source": {
+              "cell": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+              "port": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+            },
+            "target": {
+              "cell": "544e9b37-0d3d-45a3-b752-26acc44c3300",
+              "port": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Live Video Feed",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Live Video Feed"
+            ],
+            "id": "952abcec-7492-4a61-9d49-e42dc037479d",
+            "source": {
+              "cell": "544e9b37-0d3d-45a3-b752-26acc44c3300",
+              "port": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+            },
+            "target": {
+              "cell": "96b3e091-7196-4d90-a6aa-7f67ce3d4422",
+              "port": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": -480
+              },
+              {
+                "x": 420,
+                "y": -420
+              },
+              {
+                "x": 480,
+                "y": -390
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Internal Pivot",
+              "description": "Elevation of privilege after the attacker compromises the router to access the cameras",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Internal Pivot"
+            ],
+            "id": "b6a23547-ac8a-487f-89b8-ae6cef85ef85",
+            "source": {
+              "cell": "61721467-de58-49c6-bb82-8ac1fef19f06",
+              "port": "a36dfbbf-0707-4a25-96cc-742c89fe92b6"
+            },
+            "target": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "3184dcf9-6906-491b-9a49-b3458ef53990"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Physical/Local Attack",
+              "description": "Exploitation of Wifi or device hardware",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Physical/Local Attack"
+            ],
+            "id": "02a1ebf8-bd43-4aad-a43b-009b510a29ea",
+            "source": {
+              "cell": "a43d5f10-7f33-4c03-aec9-0733503742c8",
+              "port": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+            },
+            "target": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+            },
+            "vertices": [
+              {
+                "x": 890,
+                "y": -840
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Read/Write Local Configurations",
+              "description": "The smart home cameras and baby monitors read device credentials and writes firmware settings",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Read/Write Local Configurations"
+            ],
+            "id": "369b7cbd-947a-4f60-a1ca-620a1876762f",
+            "source": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "a36dfbbf-0707-4a25-96cc-742c89fe92b6"
+            },
+            "target": {
+              "cell": "90a93b43-95be-4134-bde2-6b9f701d4331",
+              "port": "48aa706e-652d-4eca-b86c-336b5a014f08"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request Video Recording",
+              "description": "API requests different video files that are stored on cloud for the users",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Request Video Recording"
+            ],
+            "id": "fdd33983-2232-4a3c-a789-059e2494b21d",
+            "source": {
+              "cell": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+              "port": "a4bde80b-b011-42e1-ba60-d6945d2c541a"
+            },
+            "target": {
+              "cell": "0e5616c4-db77-4db2-92a3-4f473555a39c",
+              "port": "75ac2a48-8322-488e-a0d0-338c2c40e36b"
+            },
+            "vertices": [
+              {
+                "x": -30,
+                "y": -710
+              },
+              {
+                "x": -50,
+                "y": -490
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log Data Transmission",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Log Data Transmission"
+            ],
+            "id": "453fc9e4-2aa5-4936-bc2b-6fa399ea7bca",
+            "source": {
+              "cell": "837a1f6f-6eb4-4b95-85fa-0024e251c4c4",
+              "port": "4325484a-1caf-422a-bc69-2a9954e64c5f"
+            },
+            "target": {
+              "cell": "85c7deb8-2e62-4d58-ab50-6515d50baf3b",
+              "port": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+            },
+            "vertices": [
+              {
+                "x": 950,
+                "y": -640
+              },
+              {
+                "x": 980,
+                "y": -430
+              },
+              {
+                "x": 980,
+                "y": -210
+              },
+              {
+                "x": 940,
+                "y": -130
+              },
+              {
+                "x": 770,
+                "y": -110
+              },
+              {
+                "x": 460,
+                "y": -110
+              },
+              {
+                "x": 290,
+                "y": -130
+              },
+              {
+                "x": 240,
+                "y": -180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Store Video Recordings",
+              "description": "Live streams saved to the long-term cloud storage",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Store Video Recordings"
+            ],
+            "id": "f537ecc6-0ef0-48fb-97d2-6f9e110a646d",
+            "source": {
+              "cell": "544e9b37-0d3d-45a3-b752-26acc44c3300",
+              "port": "13003f2a-5ed8-47a6-b9f4-80c59d8406b4"
+            },
+            "target": {
+              "cell": "0e5616c4-db77-4db2-92a3-4f473555a39c",
+              "port": "48aa706e-652d-4eca-b86c-336b5a014f08"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Account Management/Settings",
+              "description": "User changing cloud-side settings",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Account Management/Settings"
+            ],
+            "id": "17845234-7c08-4147-b887-81fe9e2937f9",
+            "source": {
+              "cell": "2423e128-a0ee-4a33-ad63-817c58a72333",
+              "port": "66c02154-b3e7-40a4-8e0d-03acc8a33571"
+            },
+            "target": {
+              "cell": "03686921-4b1b-4655-b43d-a24f78e5ffb2",
+              "port": "ddf7d657-5446-48ba-939a-0357a2d77ceb"
+            },
+            "vertices": [
+              {
+                "x": 1010,
+                "y": -380
+              },
+              {
+                "x": 1030,
+                "y": -240
+              },
+              {
+                "x": 960,
+                "y": -100
+              },
+              {
+                "x": 690,
+                "y": -60
+              },
+              {
+                "x": 390,
+                "y": -60
+              },
+              {
+                "x": -80,
+                "y": -110
+              },
+              {
+                "x": -190,
+                "y": -420
+              },
+              {
+                "x": -170,
+                "y": -680
+              },
+              {
+                "x": 10,
+                "y": -780
+              }
+            ]
+          },
+          {
             "position": {
-              "x": 605,
-              "y": -745
+              "x": 600,
+              "y": -445
             },
             "size": {
               "width": 220,
@@ -766,11 +1339,11 @@
           },
           {
             "position": {
-              "x": 605,
-              "y": -910
+              "x": 649.9999999999977,
+              "y": -950
             },
             "size": {
-              "width": 220,
+              "width": 140,
               "height": 70
             },
             "attrs": {
@@ -907,6 +1480,19 @@
                   "new": false,
                   "number": 107,
                   "score": ""
+                },
+                {
+                  "id": "548f5060-0429-4b82-9f88-8e01552ade0c",
+                  "title": "Router Resource Starvation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Denial of Service attacks to starve the router of resources.",
+                  "mitigation": "Traffic analysis and DDoS mitigation tools and services should be used and implemented. Bandwidth management to prevent overuse.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
@@ -914,10 +1500,13 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 2
               }
-            }
+            },
+            "children": [
+              "5af683c2-6ef9-43e0-bd74-0e703b85e725"
+            ]
           },
           {
             "position": {
@@ -1038,11 +1627,11 @@
           },
           {
             "position": {
-              "x": 655,
-              "y": -350
+              "x": 610,
+              "y": -595
             },
             "size": {
-              "width": 120,
+              "width": 220,
               "height": 60
             },
             "attrs": {
@@ -1050,11 +1639,13 @@
                 "text": "Device Configuration Store"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1147,17 +1738,37 @@
             "data": {
               "type": "tm.Store",
               "name": "Device Configuration Store",
-              "description": "STores local weak/hardcoded credentials",
+              "description": "Stores local weak/hardcoded credentials",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "b0687edb-b839-4d8a-bf6d-80476e3b1dd3",
+                  "title": "Configuration Modification",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers gaining local access to change local device configurations.",
+                  "mitigation": "Enforcing signed configurations to allow changes only from authenticated sources. Role based restriction. Least privilege.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1174,8 +1785,8 @@
                 "text": "Cloud API Gateway"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1272,18 +1883,53 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "5573dca9-2eb4-42f6-b99b-4bc08642bc1d",
+                  "title": "Mobile App Identity Hijacking",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Broken Authentication ",
+                  "mitigation": "Use strong credentials. Use MFA. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
+                },
+                {
+                  "id": "e393a36f-7221-4a9d-89c8-c8904ad2dec4",
+                  "title": "Insecure Direct Object Reference(IDOR) through API",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Accessing other user's videos through IDOR attacks via API",
+                  "mitigation": "Implement server-side access control. Conduct regular security audits",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
             "position": {
               "x": 219.99999999999778,
-              "y": -645
+              "y": -665
             },
             "size": {
               "width": 60,
@@ -1294,8 +1940,8 @@
                 "text": "Video Streaming Service"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1391,19 +2037,41 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "4a07ce68-35d1-4116-aa6f-c6d7521f681e",
+                  "title": "Video Feed Interception/Insertion",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers intercepting the stream and inserting malicious content",
+                  "mitigation": "Securing the streams with end-to-end encryption like TLS, SRTP, etc. Network segmentation and isolation of streaming services from public networks.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "zIndex": 20
           },
           {
             "position": {
-              "x": 219.99999999999778,
-              "y": -509.9999999999999
+              "x": 210,
+              "y": -340
             },
             "size": {
               "width": 60,
@@ -1519,11 +2187,11 @@
               "threats": [
                 {
                   "id": "9b1934da-bca0-45d0-9e22-b2d45ab65cf1",
-                  "title": "New STRIDE threat",
+                  "title": "Log Deletion/Poisoning",
                   "status": "Open",
                   "severity": "High",
                   "type": "Repudiation",
-                  "description": "Vulnerable to log poisoning and deletion",
+                  "description": "Vulnerable to log poisoning and deletion. Anti-forensics.",
                   "mitigation": "Ensuring authenticity and integrity checks.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1534,7 +2202,7 @@
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1545,7 +2213,7 @@
           {
             "position": {
               "x": 685,
-              "y": -635
+              "y": -325
             },
             "size": {
               "width": 60,
@@ -1556,8 +2224,8 @@
                 "text": "Mobile App Authentication"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1654,20 +2322,188 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "090d8d26-ebcd-473c-b94e-51fbb6c50457",
+                  "title": "Insecured Stored Tokens",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Mobile application storing tokens as plaintext locally",
+                  "mitigation": "Encryption methods. Use secure storage APIs. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "children": [
               "dbf317dc-847d-4d9b-b0ed-c7dddda50db5"
             ]
+          },
+          {
+            "position": {
+              "x": 189.99999999999778,
+              "y": -474.9999999999999
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Cloud Storage"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "48aa706e-652d-4eca-b86c-336b5a014f08"
+                },
+                {
+                  "group": "right",
+                  "id": "c78c8958-53ac-4847-b5b1-c49ad392b4e3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a6e203ae-6a6c-43d5-ad86-d10697beffbf"
+                },
+                {
+                  "group": "left",
+                  "id": "75ac2a48-8322-488e-a0d0-338c2c40e36b"
+                }
+              ]
+            },
+            "id": "0e5616c4-db77-4db2-92a3-4f473555a39c",
+            "data": {
+              "type": "tm.Store",
+              "name": "Cloud Storage",
+              "description": "Stores recorded videos and backups",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "1f16d70b-6e58-4801-aea6-325128b69e22",
+                  "title": "Cloud Storage Leakage",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Misconfiguration of storage like public read access leading to exposed recordings",
+                  "mitigation": "Enforcing private access by default and using IAM policies.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            },
+            "zIndex": 24
           }
         ],
         "version": "2.5.0",
-        "title": "IoT  Security Threat Model",
+        "title": "IoT Honeypot Architecture",
         "id": "diagram-1",
         "diagramType": "STRIDE"
       }
